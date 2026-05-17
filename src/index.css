@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #f25b0a; /* amparo-orange */
+  --color-brand-primary-light: #fff7ed; /* orange-50 */
+  --color-brand-primary-dark: #c2410c; /* orange-700 */
+  --color-brand-secondary: #0f172a; /* amparo-navy */
+  
+  --color-amparo-orange: var(--color-brand-primary);
+  --color-amparo-orange-light: var(--color-brand-primary-light);
+  --color-amparo-navy: var(--color-brand-secondary);
+  --color-amparo-burgundy: #4a1d1d;
+  --color-amparo-purple: #6b21a8;
+  --color-amparo-purple-light: #f3e8ff;
+  
+  --color-amparo-red: #ef4444; /* red-500 */
+  --color-amparo-red-light: #fef2f2; /* red-50 */
+  --color-amparo-amber: #f59e0b; /* amber-500 */
+  --color-amparo-amber-light: #fffbeb; /* amber-50 */
+  --color-amparo-green: #10b981; /* emerald-500 */
+  --color-amparo-green-light: #ecfdf5; /* emerald-50 */
+  --color-amparo-blue: #3b82f6; /* blue-500 */
+  --color-amparo-blue-light: #eff6ff; /* blue-50 */
+  
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', ui-serif, Georgia, serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+.card-polish {
+  @apply bg-white rounded-xl border border-slate-200 shadow-sm transition-shadow hover:shadow-md;
+}

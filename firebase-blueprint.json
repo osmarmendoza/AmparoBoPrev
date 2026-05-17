@@ -1,0 +1,125 @@
+{
+  "entities": {
+    "Girl": {
+      "title": "Niña",
+      "description": "Perfil de una niña del Proyecto Amparo",
+      "type": "object",
+      "properties": {
+        "nombre": { "type": "string" },
+        "fnac": { "type": "string" },
+        "ci": { "type": "string" },
+        "ciudad": { "type": "string" },
+        "direccion": { "type": "string" },
+        "referencia": { "type": "string" },
+        "recomendadoPor": { "type": "string" },
+        "celular": { "type": "string" },
+        "caracteristicas": { "type": "string" },
+        "hermanos": { "type": "string" },
+        "relacionTutores": { "type": "string" },
+        "convivencia": { "type": "string" },
+        "colegio": { "type": "string" },
+        "gradoEscolar": { "type": "string" },
+        "direccionColegio": { "type": "string" },
+        "modalidadAnterior": { "type": "string" },
+        "materiaFavorita": { "type": "string" },
+        "turno": { "type": "string", "enum": ["mañana", "tarde"] },
+        "salud": { "type": "string" },
+        "otrasRelaciones": { "type": "string" },
+        "comentarios": { "type": "string" },
+        "fotoUrl": { "type": "string" },
+        "codigoRiesgo": { "type": "string", "enum": ["rojo", "amarillo"] },
+        "descripcionRiesgo": { "type": "string" }
+      },
+      "required": ["nombre", "codigoRiesgo"]
+    },
+    "Visit": {
+      "title": "Visita Familiar",
+      "description": "Registro de visita técnica al hogar",
+      "type": "object",
+      "properties": {
+        "girlId": { "type": "string" },
+        "fecha": { "type": "string" },
+        "staffIds": { "type": "array" },
+        "comentarios": { "type": "string" },
+        "estadoEmocional": { "type": "string" },
+        "fotoUrl": { "type": "string" }
+      },
+      "required": ["girlId", "fecha", "staffIds"]
+    },
+    "AttendanceRecord": {
+      "title": "Registro de Asistencia",
+      "description": "Asistencia diaria al apoyo escolar",
+      "type": "object",
+      "properties": {
+        "fecha": { "type": "string" },
+        "turno": { "type": "string", "enum": ["mañana", "tarde"] },
+        "asistencias": { "type": "array" },
+        "observaciones": { "type": "string" }
+      },
+      "required": ["fecha", "turno", "asistencias"]
+    },
+    "CalendarEvent": {
+      "title": "Evento de Calendario",
+      "description": "Actividades, talleres o feriados",
+      "type": "object",
+      "properties": {
+        "fecha": { "type": "string" },
+        "tipo": { "type": "string", "enum": ["feriado", "inconveniente", "actividad", "taller"] },
+        "titulo": { "type": "string" },
+        "descripcion": { "type": "string" }
+      },
+      "required": ["fecha", "tipo", "titulo"]
+    },
+    "StaffMember": {
+      "title": "Miembro de Staff",
+      "description": "Usuario del sistema y personal del proyecto",
+      "type": "object",
+      "properties": {
+        "nombre": { "type": "string" },
+        "email": { "type": "string" },
+        "telefono": { "type": "string" },
+        "rolId": { "type": "string" },
+        "fotoUrl": { "type": "string" },
+        "zonaAsignada": { "type": "string" }
+      },
+      "required": ["nombre", "email", "rolId"]
+    },
+    "UserRole": {
+      "title": "Rol de Usuario",
+      "description": "Definición de permisos para un tipo de usuario",
+      "type": "object",
+      "properties": {
+        "nombre": { "type": "string" },
+        "descripcion": { "type": "string" },
+        "permissionKeys": { "type": "array" }
+      },
+      "required": ["nombre", "permissionKeys"]
+    }
+  },
+  "firestore": {
+    "girls": {
+      "schema": "Girl",
+      "description": "Listado de niñas beneficiarias"
+    },
+    "visits": {
+      "schema": "Visit",
+      "description": "Historico de visitas domiciliaras"
+    },
+    "attendance": {
+      "schema": "AttendanceRecord",
+      "description": "Control de asistencia escolar"
+    },
+    "calendar": {
+      "schema": "CalendarEvent",
+      "description": "Planificación de actividades"
+    },
+    "staff": {
+      "schema": "StaffMember",
+      "description": "Personal y usuarios del sistema"
+    },
+    "roles": {
+      "schema": "UserRole",
+      "description": "Permisos y roles configurables"
+    }
+  }
+}
